@@ -3,11 +3,11 @@ package com.velocity.project.entity;
 public class Result {
 
 	int studentScore;
-	final int totalScore = 10;
+	int totalScore;
 
-	public Result(int studentScore) {
-		super();
+	public Result(int studentScore, int totalScore) {
 		this.studentScore = studentScore;
+		this.totalScore = totalScore;
 	}
 
 	public int getStudentScore() {
@@ -16,6 +16,14 @@ public class Result {
 
 	public void setStudentScore(int studentScore) {
 		this.studentScore = studentScore;
+	}
+
+	public int getTotalScore() {
+		return totalScore;
+	}
+
+	public void setTotalScore(int totalScore) {
+		this.totalScore = totalScore;
 	}
 
 	@Override

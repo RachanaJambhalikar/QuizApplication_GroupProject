@@ -2,77 +2,76 @@ package com.velocity.project.entity;
 
 public class Student {
 
-	int studentId;
 	String firstName;
 	String lastName;
-	String userName;
+	String username;
 	String password;
 	String city;
 	String mailId;
 	String mobileNumber;
 
-	public Student(int studentId, String firstName, String lastName, String userName, String password, String city,
-			String mailId, String mobileNumber) {
-	}
-
-	public int getStudentId() {
-		return studentId;
+	public Student(String firstName, String lastName, String username, String password, String city, String mailId,
+			String mobileNumber) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.username = username;
+		this.password = password;
+		this.city = city;
+		this.mailId = mailId;
+		this.mobileNumber = mobileNumber;
 	}
 
 	public String getFirstName() {
 		return firstName;
 	}
 
-	public String getLastName() {
-		return lastName;
-	}
-
-	public String getUserName() {
-		return userName;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public String getCity() {
-		return city;
-	}
-
-	public String getMailId() {
-		return mailId;
-	}
-
-	public String getMobileNumber() {
-		return mobileNumber;
-	}
-
-	public void setStudentId(int studentId) {
-		this.studentId = studentId;
-	}
-
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
 	}
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
 	}
 
 	public void setPassword(String password) {
 		this.password = password;
 	}
 
+	public String getCity() {
+		return city;
+	}
+
 	public void setCity(String city) {
 		this.city = city;
 	}
 
+	public String getMailId() {
+		return mailId;
+	}
+
 	public void setMailId(String mailId) {
 		this.mailId = mailId;
+	}
+
+	public String getMobileNumber() {
+		return mobileNumber;
 	}
 
 	public void setMobileNumber(String mobileNumber) {
@@ -81,9 +80,7 @@ public class Student {
 
 	@Override
 	public String toString() {
-		return "Student [studentId=" + studentId + ", firstName=" + firstName + ", lastName=" + lastName + ", userName="
-				+ userName + ", password=" + password + ", city=" + city + ", mailId=" + mailId + ", mobileNumber="
-				+ mobileNumber + "]";
+		return "Student [firstName=" + firstName + ", lastName=" + lastName + ", username=" + username + ", password="
+				+ password + ", city=" + city + ", mailId=" + mailId + ", mobileNumber=" + mobileNumber + "]";
 	}
-
 }
