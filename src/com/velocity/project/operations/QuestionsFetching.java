@@ -11,25 +11,21 @@ import com.velocity.project.entity.Questions;
 public class QuestionsFetching {
 
 	public static List<Questions> getAllQuestions() {
-	    List<Questions> questionsList = new ArrayList<>();
-	    Connection connection = null;
+		
+	    List<Questions> questionsList = new ArrayList<Questions>();
 	    PreparedStatement preparedStatement = null;
-	    ResultSet resultSet = null;
-
+	    Connection connection = null;
 	    try {
 	        connection = DatabaseConnection.getConnection();
-	        if (connection == null) {
-	            System.out.println("Connection is null!");
-	            return questionsList;
-	        }
+	       
+	        String selectQuestionsTable = "SELECT * FROM Questions";
+	        preparedStatement = connection.prepareStatement(selectQuestionsTable);
+	        ResultSet resultSet = preparedStatement.executeQuery();
 
-	        String fetchQuery = "SELECT * FROM Questions";
-	        preparedStatement = connection.prepareStatement(fetchQuery);
-	        resultSet = preparedStatement.executeQuery();
-
-	        while (resultSet.next()) {
+	        while (resultSet.next()) { 
 	            int questionId = resultSet.getInt("question_Id");
 	            String question = resultSet.getString("question");
+	            
 	            System.out.println(questionId + ", Question: " + question);
 	            
 	            Questions questions = new Questions(questionId, question);
@@ -40,9 +36,8 @@ public class QuestionsFetching {
 	        e.printStackTrace();
 	    } finally {
 	        try {
-	            if (resultSet != null) resultSet.close();
-	            if (preparedStatement != null) preparedStatement.close();
-	            if (connection != null) connection.close();
+	            preparedStatement.close();
+	            connection.close();
 	        } catch (Exception e) {
 	            e.printStackTrace();
 	        }

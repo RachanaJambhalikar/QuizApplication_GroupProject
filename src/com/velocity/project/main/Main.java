@@ -1,7 +1,10 @@
 package com.velocity.project.main;
 
+import java.util.List;
 import java.util.Scanner;
 
+import com.velocity.project.entity.Questions;
+import com.velocity.project.operations.OptionsFetching;
 import com.velocity.project.operations.QuestionsFetching;
 import com.velocity.project.operations.QuizResult;
 import com.velocity.project.operations.StudentLogin;
@@ -37,7 +40,8 @@ public class Main {
 			break;
 		case 3:
 			System.out.println("List of questions : ");
-			QuestionsFetching.getAllQuestions();
+			List<Questions> list = QuestionsFetching.getAllQuestions();
+			OptionsFetching.getOptions(null);
 			break;
 		case 4:
 			break;
