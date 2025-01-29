@@ -21,8 +21,8 @@ public class StudentLogin {
 
             Connection connection = DatabaseConnection.getConnection();
 
-            String loginStudent = "SELECT * FROM student WHERE userName = ? AND password = ?";
-            PreparedStatement preparedStatement = connection.prepareStatement(loginStudent);
+            String selectStudent = "SELECT * FROM student WHERE userName = ? AND password = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(selectStudent);
             preparedStatement.setString(1, userName);
             preparedStatement.setString(2, password);
 
@@ -36,16 +36,13 @@ public class StudentLogin {
                 System.out.println("Invalid username or password...");
             }
   
+            // System.out.println("Recored fetched successfully ");
             resultSet.close();
             preparedStatement.close();
             connection.close();
 
-        } catch (SQLException e) {
-            System.out.println("Database error : " + e.getMessage());
         } catch (Exception e) {
             System.out.println("Unexpected error : " + e.getMessage());
-        } finally {
-            scanner.close();
-        }
+        } 
     }
 }

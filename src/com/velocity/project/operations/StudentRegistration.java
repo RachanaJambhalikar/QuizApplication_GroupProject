@@ -8,7 +8,7 @@ import com.project.database.connection.DatabaseConnection;
 
 public class StudentRegistration {
 
-	public static void registerStudentDetails() {
+	public static void registerStudentDetails(){
 		Scanner scanner = new Scanner(System.in);
 		try {
 			System.out.println("Enter the first name >> ");
@@ -37,17 +37,14 @@ public class StudentRegistration {
 			preparedStatement.setString(6, mailId);
 			preparedStatement.setString(7, mobileNumber);
 
-
-			int rowsInserted = preparedStatement.executeUpdate();
-			if (rowsInserted > 0) {
+			int inserted = preparedStatement.executeUpdate();
+			if (inserted > 0) {
 				System.out.println("Student registered successfully!");
 			}
 			preparedStatement.close();
-			connection.close();
+			connection.close(); 
 		} catch (Exception e) {
 			e.printStackTrace();
-		} finally {
-			scanner.close();
-		}
+		} 
 	}
 }
